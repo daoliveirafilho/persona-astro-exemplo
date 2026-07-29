@@ -1,0 +1,128 @@
+---
+// Foundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const education = [
+  {
+    period: "2025",
+    title: "Redes GPON",
+    description:
+      "Link para o certificado.",
+    category: "DATACOM",
+  },
+  {
+    period: "2025",
+    title: "Switches DMOS - Layer 2",
+    description:
+      "Link para o certificado.",
+    category: "DATACOM",
+  },
+  {
+    period: "2025",
+    title: "IPv6",
+    description:
+      "Curso IPv6 EAD.",
+    category: "NIC.br",
+  },
+  {
+    period: "2023",
+    title: "IPv6",
+    description:
+      "Hurricane Electric IPv6 Certification.",
+    category: "HE.net",
+  },
+  {
+    period: "2023",
+    title: "LIBRAS",
+    description:
+      "Lingua Brasileira de Sinais.",
+    category: "CREAECE",
+  },
+  {
+    period: "2021",
+    title: "LGPD",
+    description:
+      "LGPD Educacional - Encarregado de Dados.",
+    category: "SERPRO",
+  },
+  {
+    period: "2012",
+    title: "Redes de Computaores",
+    description:
+      "Faculdade de Tecnologia do Nordeste.",
+    category: "FATENE",
+  },
+  {
+    period: "2010",
+    title: "NCA",
+    description:
+      "Nettion Certified Administrator Level 1.",
+    category: "Nettion Security Software",
+  },
+];
+---
+
+<section class="scroll-mt-32" id="education">
+  <Wrapper variant="standard" class="py-12 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
+      <div class="lg:col-start-2">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+Cursos
+          <br />
+Certificados
+        </Text>
+      </div>
+
+      <Text
+        tag="h2"
+        variant="textXL"
+        class="font-semibold leading-snug tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
+      >
+Forma&ccedil;&atilde;o Acad&ecirc;mica
+      </Text>
+    </div>
+
+    <div class="flex flex-col gap-12 mt-12">
+      {
+        education.map((item) => (
+          <article class="py-12 border-t border-base-200 dark:border-base-800">
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-300 uppercase"
+              >
+                {item.period}
+              </Text>
+
+              <Text
+                tag="h3"
+                variant="textLG"
+                class="text-base-900 dark:text-white leading-tight font-semibold"
+              >
+                {item.title}
+              </Text>
+
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-base-600 dark:text-base-300"
+              >
+                {item.description}
+              </Text>
+
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-300 uppercase lg:ml-auto lg:col-start-4"
+              >
+                {item.category}
+              </Text>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

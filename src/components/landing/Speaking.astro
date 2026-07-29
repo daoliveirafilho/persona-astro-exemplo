@@ -1,0 +1,122 @@
+---
+// Foundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const speechesAndTalks = [
+  {
+    period: "2018",
+    title: "Telemetry IoT",
+    description:
+      "A talk on designing UI when performance, latency, and imperfect data are the default—how to make trade-offs explicit and still ship clarity.",
+    category: {
+      label: "https://www.youtube.com/watch?v=3IjvqJ3mFng&pp=0gcJCaMLAYcqIYzv",
+      href: "https://www.youtube.com/watch?v=3IjvqJ3mFng&pp=0gcJCaMLAYcqIYzv",
+    },
+  },
+  {
+    period: "2017",
+    title: "FVWM2 window manager",
+    description:
+      "FVWM (originally the F(?) Virtual Window Manager) is a fast, lightweight, and highly configurable stacking window manager for the X Window System on Unix-like operating systems. It originated as a derivative of the classic TWM.",
+    category: {
+      label: "https://www.youtube.com/watch?v=X4L2ZIgJ34o",
+      href: "https://www.youtube.com/watch?v=X4L2ZIgJ34o",
+    },
+  },
+  {
+    period: "2016",
+    title: "Ettercap",
+    description:
+      "Translating network structures via topological and complex network analysis (CNT) means converting raw system data into a mathematical graph of nodes and links to decode connectivity patterns, evaluate system robustness, and map functional dynamics.",
+    category: {
+      label: "https://www.youtube.com/watch?v=C1DZCegV-Qs",
+      href: "https://www.youtube.com/watch?v=C1DZCegV-Qs",
+    },
+  },
+  {
+    period: "2014",
+    title: "Kernel upgrade",
+    description:
+      "The Linux kernel is the core interface between a computer’s hardware and its processes.",
+    category: {
+      label: "https://www.youtube.com/watch?v=y6k64SHrwDk",
+      href: "https://www.youtube.com/watch?v=y6k64SHrwDk",
+    },
+  },
+  {
+    period: "2013",
+    title: "TWM window manager",
+    description:
+      "A critique framework for it evaluates its historic minimalism against modern desktop expectations.",
+    category: {
+      label: "https://www.youtube.com/watch?v=taUrMKzVM3w",
+      href: "https://www.youtube.com/watch?v=taUrMKzVM3w",
+    },
+  },
+];
+---
+
+<section class="scroll-mt-32" id="speaking">
+  <Wrapper variant="standard" class="py-12 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-4 items-start">
+      <div class="lg:col-start-2">
+        <Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300">
+          Speeches & Talks
+          <br />
+          Selected Sessions
+        </Text>
+      </div>
+      <Text
+        tag="h2"
+        variant="textXL"
+        class="font-semibold leading-snug tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
+      >
+Speeches & Talks
+</Text>
+</div>
+<div class="flex flex-col gap-12 mt-12">
+{
+speechesAndTalks.map((item) => (
+<article class="py-12 border-t border-base-200 dark:border-base-800">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
+{/* Year */}
+<Text
+tag="p"
+variant="textXS"
+class="text-base-600 dark:text-base-300 uppercase"
+>
+{item.period}
+</Text>
+{/* Title */}
+<Text
+tag="h3"
+variant="textLG"
+class="text-base-900 dark:text-white leading-tight font-semibold"
+>
+{item.title}
+</Text>
+{/* Description */}
+<Text
+tag="p"
+variant="textSM"
+class="text-base-600 dark:text-base-300"
+>
+{item.description}
+</Text>
+{/* Category (linked, original position) */}
+<a
+href={item.category.href}
+class=" lg:ml-auto text-base-900 dark:text-white hover:text-accent-600 transition"
+>
+Visit {item.category.label}
+<ArrowRight class="size-4" />
+</a>
+</div>
+</article>
+))
+}
+</div>
+</Wrapper>
+</section>

@@ -1,0 +1,111 @@
+---
+// Assets
+import { Image } from "astro:assets";
+import one from "@/images/work/one.webp";
+import two from "@/images/work/two.webp";
+import three from "@/images/work/three.webp";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const featuredProjects = [
+  {
+    year: "2021",
+    title: "Tratamento de dados automatizado",
+    description:
+      "Eliminando a complexidade dos gateways tradicionais e entregando seus dados diretamente em uma infraestrutura moderna.",
+    category: "API Gateway",
+    image: one,
+    imageAlt:
+      "The modernization of farm watering using smart tools like sensors.",
+  },
+  {
+    year: "2019",
+    title: "UX/UI Design",
+    description:
+      "Plataforma simples com hardware modular, telemetria em tempo real e sistemas orientados a eventos.",
+    category: "Visual Interface",
+    image: two,
+    imageAlt:
+      "A technical UI with multiple sensor nodes.",
+  },
+  {
+    year: "2016",
+    title: "Software embarcado",
+    description:
+      "Microcontroladores de baixo custo que integram recursos de Wi-Fi e Bluetooth.",
+    category: "Hardware & Embedded Systems",
+    image: three,
+    imageAlt:
+      "Dynamic views with dashboards responsive layouts.",
+  },
+];
+---
+
+<section class="scroll-mt-32" id="work">
+<Wrapper variant="standard" class="py-12 lg:py-24">
+<div class="grid grid-cols-1 lg:grid-cols-4 items-start">
+<div class="lg:col-start-2">
+<Text tag="p" variant="textSM" class="text-base-600 dark:text-base-300"
+>Destaque
+<br />
+2010 - {new Date().getFullYear()}</Text
+>
+</div>
+<Text
+tag="h2"
+variant="textXL"
+class="font-semibold leading-snug text-left tracking-tighter lg:col-span-2 text-base-900 dark:text-white"
+>
+Work
+</Text>
+</div>
+
+    <div class="flex flex-col lg:gap-12 mt-8">
+      {
+        featuredProjects.map((project) => (
+          <article class="py-12 border-t border-base-200 dark:border-base-800">
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 items-start">
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-300 uppercase"
+              >
+                {project.year}
+              </Text>
+              <Text
+                tag="h3"
+                variant="displaySM"
+                class="text-base-900 dark:text-white leading-tight font-semibold "
+              >
+                {project.title}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-base-600 dark:text-base-300"
+              >
+                {project.description}
+              </Text>
+              <Text
+                tag="p"
+                variant="textXS"
+                class="text-base-600 dark:text-base-300 uppercase lg:ml-auto lg:col-start-4"
+              >
+                {project.category}
+              </Text>
+            </div>
+            <Image
+              width={1420}
+              height={930}
+              src={project.image}
+              alt={project.imageAlt}
+              loading="lazy"
+              decoding="async"
+              class="size-full aspect-4/2 rounded-4xl mt-12 object-cover object-center"
+            />
+          </article>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

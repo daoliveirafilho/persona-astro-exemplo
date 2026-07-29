@@ -1,0 +1,18 @@
+#chart {
+background: src(#map);
+background-position: center; 
+background-repeat: no-repeat;
+background-size: cover;
+position: absolute;
+height: 300px;
+width: 100%;
+z-index: 10;
+}
+
+#map {
+height: 300px;
+pointer-events: none;
+position: relative;
+width: 100%;
+z-index: 0;
+}
